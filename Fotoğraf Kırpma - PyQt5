@@ -34,7 +34,7 @@ class Pencere(QWidget):
         self.show()
     def click(self,kare,dik):
         if kare:
-            kırpılacak_alan = (0, 0, 270, 310)
+            kırpılacak_alan = (0, 0, 270, 310) // Bu ölçüleri kendimiz fotoğrafların boyutuna göre ayarlıyoruz.
         if dik:
             kırpılacak_alan = (0, 0, 240, 400)
 
