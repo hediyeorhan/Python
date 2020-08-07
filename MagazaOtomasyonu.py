@@ -16,7 +16,7 @@ def trlower(metin):
 
     return metin2
 
-# BURADA MÜŞTERİ BİLGİLERİ VE SATIŞ YAPILAN ÜRÜN BİLGİLERİ ALINIYOR. SATIŞ VE MÜŞTERİLER DOSYASINA VERİLER KAYDEDİLİYOR.
+# BURADA MÜŞTERİ BİLGİLERİ VE SATIŞ YAPILAN ÜRÜN BİLGİLERİ ALINIYOR. SATIŞ BİLGİLERİ DOSYASINA VERİLER KAYDEDİLİYOR.
 def SatisYap():
     Musteriler = dict()
 
@@ -229,7 +229,7 @@ def YeniUrunKayit():
 
 # DEPODAKİ ÜRÜNLER İÇİNDEN ARAMA YAPMA FONKSİYONU
 def UrunArama(urun):
-    dosya = open("Urunler.txt.txt", "r", encoding="utf-8")
+    dosya = open("Urunler.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
@@ -268,7 +268,7 @@ def SatisBilgisiArama(musteriad,uruntur):
 
 # DEPOYA EKLEDİĞİMİZ ÜRÜNLERDEN İSTEDİĞİMİZİ SİLME FONKSİYONU
 def UrunSilme(kod):
-    dosya = open("Urunler.txt.txt", "r", encoding="utf-8")
+    dosya = open("Urunler.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
@@ -349,7 +349,7 @@ def MusteriKayitSilme(isim):
 # ÜRÜNLER.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
 # BU FONKSİYONDAN DÖNEN DEĞERLERİ DİĞER FONKSİYONLARDA KULLANMAK İÇİN BU FONKSİYONU YAZDIM.
 def UrunBilgisi(kod):
-    with open("Urunler.txt.txt", "r", encoding="utf-8") as dosya:
+    with open("Urunler.txt", "r", encoding="utf-8") as dosya:
         for bilgi in dosya:
             bilgi = bilgi[:-1]
             bilgiler = bilgi.split(" -- ")    # BİLGİLER ARASINDA '--' İŞARETİ OLDUĞU İÇİN '--' İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
@@ -367,17 +367,17 @@ def UrunBilgisi(kod):
 
 def UrunGuncelleme(kod):
 
-    dosya = open("Urunler.txt.txt", "r", encoding="utf-8")
+    dosya = open("Urunler.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
     for i in satir:
 
         if trlower(kod) in trlower(i):
-            tur, renk, beden, marka, fiyat = UrunBilgisi(kod)  # YUKARIDA YAZDIĞIM FONKSİYON İLE ÜRÜNLER.TXT(18010011087.txt) DOSYASI İÇİNDEKİ DEĞERLERİ ALDIM.
+            tur, renk, beden, marka, fiyat = UrunBilgisi(kod)  # YUKARIDA YAZDIĞIM FONKSİYON İLE ÜRÜNLER.TXT DOSYASI İÇİNDEKİ DEĞERLERİ ALDIM.
             indeks = satir.index(i)
             print("\n", i, "\n")
-            dosya = open("Urunler.txt.txt", "w", encoding="utf-8")
+            dosya = open("Urunler.txt", "w", encoding="utf-8")
             # GÜNCELLEME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
             while True:
                 try:
@@ -444,7 +444,7 @@ def UrunGuncelleme(kod):
     for i in satir:
         print(i)
 
-# SATİSVEMUSTERİLER.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
+# SATİSBİLGİLERİ.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
 # BU FONKSİYONDAN DÖNEN DEĞERLERİ DİĞER FONKSİYONLARDA KULLANMAK İÇİN BU FONKSİYONU YAZDIM.
 def BilgiCekme(musteriad):
     with open("SatisBilgileri.txt", "r", encoding="utf-8") as dosya:
@@ -487,7 +487,7 @@ def MusteriBilgisiGuncelleme(guncelad):
     for i in satir:
 
         if trlower(guncelad) in trlower(i):
-            ad, numara, kart = MusteriBilgi(guncelad)  # YUKARIDA YAZDIĞIM FONKSİYON İLE MUSTERİLER.TXT(18010011087(3).txt) DOSYASINDAKİ BİLGİLERİ ALDIM.
+            ad, numara, kart = MusteriBilgi(guncelad)  # YUKARIDA YAZDIĞIM FONKSİYON İLE MUSTERİLER.TXT DOSYASINDAKİ BİLGİLERİ ALDIM.
             indeks = satir.index(i)
             print("\n", i, "\n")
             dosya = open("Musteriler.txt", "w", encoding="utf-8")
