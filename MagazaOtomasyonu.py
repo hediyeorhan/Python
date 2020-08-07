@@ -272,7 +272,7 @@ def UrunSilme(kod):
     satir = dosya.readlines()
     dosya.close()
 
-    dosya = open("Urunler.txt.txt", "w", encoding="utf-8")
+    dosya = open("Urunler.txt", "w", encoding="utf-8")
     # SİLME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
 
     for i in satir:
@@ -749,7 +749,7 @@ def menu():
                 print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
                 # SİLME İŞLEMİNDEN ÖNCE BİLGİLERİ EKRANA YAZDIRDIM KULLANICININ GÖRMESİ İÇİN.
                 if secim == "1":
-                    dosya = open("Urunler.txt.txt", "r", encoding="utf-8")
+                    dosya = open("Urunler.txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
