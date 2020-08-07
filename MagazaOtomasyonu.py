@@ -32,8 +32,8 @@ def SatisYap():
     for i in range(1, satissayisi + 1):
         bilgi = dict()
         # SATIŞ BİLGİLERİ İÇİ AYRI MÜŞTERİ BİLGİLERİ İÇİN AYRI DOSYA AÇTIM.
-        dosya = open("18010011087(2).txt", "a", encoding="utf-8")
-        dosya2 = open("18010011087(3).txt", "a", encoding="utf-8")
+        dosya = open("SatisBilgileri.txt", "a", encoding="utf-8")
+        dosya2 = open("Musteriler.txt", "a", encoding="utf-8")
 
         MusteriAdSoyad = input("{}. Müşterinin adı ve soyadını giriniz : ".format(i))
         bilgi["AD SOYAD"] = MusteriAdSoyad.title()
@@ -188,7 +188,7 @@ def YeniUrunKayit():
 
         bilgi = dict()
         # DEPODAKİ ÜRÜN BİLGİLERİNİ TUTMASI İÇİN ÜRÜNLER.TXT DOSYASI OLUŞTURDUM.
-        dosya = open("18010011087.txt", "a", encoding="utf-8")
+        dosya = open("Urunler.txt", "a", encoding="utf-8")
 
         # DEPOYA EKLEDİĞİMİZ ÜRÜNLERE RASTGELE KOD ATAMASI YAPIYOR BÖYLECE DİĞER FONKSİYONLARDA BU KOD İLE ÜRÜNLERE ERİŞECEĞİZ.
         kod = random.randint(10000,99999)
@@ -229,7 +229,7 @@ def YeniUrunKayit():
 
 # DEPODAKİ ÜRÜNLER İÇİNDEN ARAMA YAPMA FONKSİYONU
 def UrunArama(urun):
-    dosya = open("18010011087.txt", "r", encoding="utf-8")
+    dosya = open("Urunler.txt.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
@@ -245,7 +245,7 @@ def UrunArama(urun):
 
 # İSTEDİĞİMİZ MÜŞTERİNİN BİLGİLERİNİ ARAMA FONKSİYONU
 def MusteriArama(musteriad):
-    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
+    dosya = open("Musteriler.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
@@ -257,7 +257,7 @@ def MusteriArama(musteriad):
 
 # YAPILAN SATIŞLAR İÇİNDEN ARAMA YAPMAMIZI SAĞLAYAN FONKSİYON.
 def SatisBilgisiArama(musteriad,uruntur):
-    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
+    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     for i in satir:
@@ -268,11 +268,11 @@ def SatisBilgisiArama(musteriad,uruntur):
 
 # DEPOYA EKLEDİĞİMİZ ÜRÜNLERDEN İSTEDİĞİMİZİ SİLME FONKSİYONU
 def UrunSilme(kod):
-    dosya = open("18010011087.txt", "r", encoding="utf-8")
+    dosya = open("Urunler.txt.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
-    dosya = open("18010011087.txt", "w", encoding="utf-8")
+    dosya = open("Urunler.txt.txt", "w", encoding="utf-8")
     # SİLME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
 
     for i in satir:
@@ -294,12 +294,12 @@ def UrunSilme(kod):
 
 # YAPTIĞIMIZ SATIŞLARIN BİLGİLERİNDEN İSTEDİĞİMİZİ SİLME FONKSİYONU
 def SatisBilgisiSilme(musteriad):
-    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
+    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
 
-    dosya = open("18010011087(2).txt", "w", encoding="utf-8")
+    dosya = open("SatisBilgileri.txt", "w", encoding="utf-8")
     # SİLME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
 
     for i in satir:
@@ -323,11 +323,11 @@ def SatisBilgisiSilme(musteriad):
 
 # İSTEDİĞİMİZ MÜŞTERİNİN KAYDINI SİLME FONKSİYONU
 def MusteriKayitSilme(isim):
-    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
+    dosya = open("Musteriler.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
-    dosya = open("18010011087(3).txt", "w", encoding="utf-8")
+    dosya = open("Musteriler.txt", "w", encoding="utf-8")
     # SİLME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
 
     for i in satir:
@@ -349,7 +349,7 @@ def MusteriKayitSilme(isim):
 # ÜRÜNLER.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
 # BU FONKSİYONDAN DÖNEN DEĞERLERİ DİĞER FONKSİYONLARDA KULLANMAK İÇİN BU FONKSİYONU YAZDIM.
 def UrunBilgisi(kod):
-    with open("18010011087.txt", "r", encoding="utf-8") as dosya:
+    with open("Urunler.txt.txt", "r", encoding="utf-8") as dosya:
         for bilgi in dosya:
             bilgi = bilgi[:-1]
             bilgiler = bilgi.split(" -- ")    # BİLGİLER ARASINDA '--' İŞARETİ OLDUĞU İÇİN '--' İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
@@ -367,7 +367,7 @@ def UrunBilgisi(kod):
 
 def UrunGuncelleme(kod):
 
-    dosya = open("18010011087.txt", "r", encoding="utf-8")
+    dosya = open("Urunler.txt.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
@@ -377,7 +377,7 @@ def UrunGuncelleme(kod):
             tur, renk, beden, marka, fiyat = UrunBilgisi(kod)  # YUKARIDA YAZDIĞIM FONKSİYON İLE ÜRÜNLER.TXT(18010011087.txt) DOSYASI İÇİNDEKİ DEĞERLERİ ALDIM.
             indeks = satir.index(i)
             print("\n", i, "\n")
-            dosya = open("18010011087.txt", "w", encoding="utf-8")
+            dosya = open("Urunler.txt.txt", "w", encoding="utf-8")
             # GÜNCELLEME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
             while True:
                 try:
@@ -447,7 +447,7 @@ def UrunGuncelleme(kod):
 # SATİSVEMUSTERİLER.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
 # BU FONKSİYONDAN DÖNEN DEĞERLERİ DİĞER FONKSİYONLARDA KULLANMAK İÇİN BU FONKSİYONU YAZDIM.
 def BilgiCekme(musteriad):
-    with open("18010011087(2).txt", "r", encoding="utf-8") as dosya:
+    with open("SatisBilgileri.txt", "r", encoding="utf-8") as dosya:
         for bilgi in dosya:
             bilgi = bilgi[:-1]
             bilgiler = bilgi.split(" -- ")    # BİLGİLER ARASINDA '--' İŞARETİ OLDUĞU İÇİN '--' İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
@@ -466,7 +466,7 @@ def BilgiCekme(musteriad):
 # MUSTERİLER.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
 # BU FONKSİYONDAN DÖNEN DEĞERLERİ DİĞER FONKSİYONLARDA KULLANMAK İÇİN BU FONKSİYONU YAZDIM.
 def MusteriBilgi(ad):
-    with open("18010011087(3).txt", "r", encoding="utf-8") as dosya:
+    with open("Musteriler.txt", "r", encoding="utf-8") as dosya:
         for bilgi in dosya:
             bilgi = bilgi[:-1]
             bilgiler = bilgi.split(" -- ")   # BİLGİLER ARASINDA '--' İŞARETİ OLDUĞU İÇİN '--' İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
@@ -479,7 +479,7 @@ def MusteriBilgi(ad):
 
 # MÜŞTERİ BİLGİSİ GÜNCELLEME FONKSİYONU
 def MusteriBilgisiGuncelleme(guncelad):
-    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
+    dosya = open("Musteriler.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
@@ -490,7 +490,7 @@ def MusteriBilgisiGuncelleme(guncelad):
             ad, numara, kart = MusteriBilgi(guncelad)  # YUKARIDA YAZDIĞIM FONKSİYON İLE MUSTERİLER.TXT(18010011087(3).txt) DOSYASINDAKİ BİLGİLERİ ALDIM.
             indeks = satir.index(i)
             print("\n", i, "\n")
-            dosya = open("18010011087(3).txt", "w", encoding="utf-8")
+            dosya = open("Musteriler.txt", "w", encoding="utf-8")
             # GÜNCELLEME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPTIĞI İÇİN YAZMA MODUNDA AÇTIM.
             while True:
                 try:
@@ -542,7 +542,7 @@ def MusteriBilgisiGuncelleme(guncelad):
 
 # YAPTIĞIMIZ SATIŞLARDA İSTEYEN MÜŞTERİLERİMİZİN ÜRÜN DEĞİŞİMİNİ YAPAN FONKSİYON
 def UrunDegisim(musteri,urun):
-    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
+    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
@@ -558,7 +558,7 @@ def UrunDegisim(musteri,urun):
                 indeks = satir.index(i)
                 print("\n", i, "\n")
                 print("\nSadece beden ve renk değişimi yapabilirsiniz.\n")
-                dosya = open("18010011087(2).txt", "w", encoding="utf-8")
+                dosya = open("SatisBilgileri.txt", "w", encoding="utf-8")
                 while True:
                     try:
 
@@ -602,7 +602,7 @@ def UrunDegisim(musteri,urun):
 
 # YAPTIĞIMIZ SATIŞLARDA İSTEYEN MÜŞTERİLERİMİZİN ÜRÜN İADESİNİ YAPAN FONKSİYON
 def UrunIade(musteri,urun):
-    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
+    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
@@ -614,7 +614,7 @@ def UrunIade(musteri,urun):
                 # YUKARIDA YAZDIĞIM FONKSİYON İLE SATIŞ BİLGİLERİNİ ALDIM.
                 indeks = satir.index(i)
                 print("\n", i, "\n")
-                dosya = open("18010011087(2).txt", "w", encoding="utf-8")
+                dosya = open("SatisBilgileri.txt", "w", encoding="utf-8")
 
                 # İADE YAPAN MÜŞTERİNİN SATIŞ BİLGİSİNDE İADE EDİLDİĞİ NOT OLARAK GÖRÜNÜYOR.
                 # DOSYA BUNA GÖRE YENİDEN YAZILIYOR.
@@ -641,7 +641,7 @@ def UrunIade(musteri,urun):
 # BELİRLİ BİR FİYAT VE ÜZERİNDE KAÇ ALIŞVERİŞ YAPILDIĞINI KULLANICIYA SÖYLEYEN FONKSİYON
 def FiyataGoreListeleme(arananfiyat):
 
-    with open("18010011087(2).txt", "r", encoding="utf-8") as dosya:
+    with open("SatisBilgileri.txt", "r", encoding="utf-8") as dosya:
         sayac = 0
         for fiyat in dosya:
             fiyat = fiyat[:-1]
@@ -663,7 +663,7 @@ def FiyataGoreListeleme(arananfiyat):
 
 # EN ÇOK ALIŞVERİŞ YAPAN MÜŞTERİLERİ LİSTELEYEN FONKSİYON
 def EnCokAlisverisYapanMusteriler():
-    with open("18010011087(3).txt", "r", encoding="utf-8") as dosya:
+    with open("Musteriler.txt", "r", encoding="utf-8") as dosya:
         print("\nEN ÇOK ALIŞVERİŞ YAPAN MÜŞTERİLER\n")
         print("\nMağaza kart puanı 300 ve üzeri olan daimi müşterilerimiz : \n")
         for fiyat in dosya:
@@ -682,7 +682,7 @@ def EnCokAlisverisYapanMusteriler():
 
 # DEPODAKİ ÜRÜNLERİ LİSTELEYEN FONKSİYON
 def UrunListele():
-    dosya = open("18010011087.txt", "r", encoding="utf-8")
+    dosya = open("Urunler.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     print("\nDEPODAKİ ÜRÜNLER\n")
@@ -691,7 +691,7 @@ def UrunListele():
 
 # SİSTEMDE KAYITLI MÜŞTERİLERİMİZİN TAMAMINI KULLANICIYA LİSTELEYEN FONKSİYON
 def MusteriListele():
-    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
+    dosya = open("Musteriler.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     print("\nKAYITLI MÜŞTERİ BİLGİLERİ\n")
@@ -700,7 +700,7 @@ def MusteriListele():
 
 # YAPILAN BÜTÜN SATIŞLARIN BİLGİSİNİ KULLANICIYA LİSTELEYEN FONKSİYON
 def SatisBilgisiListele():
-    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
+    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     print("\nYAPILAN BÜTÜN SATIŞLARIN BİLGİLERİ\n")
@@ -749,7 +749,7 @@ def menu():
                 print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
                 # SİLME İŞLEMİNDEN ÖNCE BİLGİLERİ EKRANA YAZDIRDIM KULLANICININ GÖRMESİ İÇİN.
                 if secim == "1":
-                    dosya = open("18010011087.txt", "r", encoding="utf-8")
+                    dosya = open("Urunler.txt.txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -758,7 +758,7 @@ def menu():
                     UrunSilme(kod)
 
                 elif secim == "2":
-                    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
+                    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -766,7 +766,7 @@ def menu():
                     ad = input("Satış bilgilerini silmek istediğiniz müşterinin adını ve soyadınız giriniz : ")
                     SatisBilgisiSilme(ad)
                 elif secim == "3":
-                    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
+                    dosya = open("Musteriler.txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -795,7 +795,7 @@ def menu():
                     "1) Ürün Güncelleme\n2) Müşteri Kayıt Bilgisi Güncelleme\n3) Ana Menü\nLütfen menü seçiniz : ")
                 print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
                 if secim == "1":
-                    dosya = open("18010011087.txt", "r", encoding="utf-8")
+                    dosya = open("Urunler.txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -805,7 +805,7 @@ def menu():
                     UrunGuncelleme(kod)
 
                 elif secim == "2":
-                    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
+                    dosya = open("Musteriler.txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
