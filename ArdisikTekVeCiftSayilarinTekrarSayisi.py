@@ -1,4 +1,4 @@
-""" Quiz Sorusu 2: 1-100 arasında, üretilen sayı 50-55 arasında olana kadar random sayılar üretiniz.
+""" 1-100 arasında, üretilen sayı 50-55 arasında olana kadar random sayılar üretiniz.
 Bu üretilen sayılar arasında ardışık olarak en çok tekrar eden çift sayı adetini ve en çok tekrar eden tek sayı adetini bulup, ekrana yazdırınız.
 Dizi ve liste kullanmayınız."""
 
