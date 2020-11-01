@@ -1,3 +1,10 @@
+# 18010011087
+# HEDİYE ORHAN
+"""
+KODU TAMAMEN ÇALIŞTIRDIĞIMIZDA SATIŞ YAP FONKSİYONUNDA, SATIŞ BİLGİLERİ VE MÜŞTERİ BİLGİLERİ TUTULAN 2 ADET DOSYA DAHA OLUŞTURULUYOR.
+PROJEMDE 3 TANE TXT DOSYASI KULLANDIM. GÖNDERDİĞİM TXT DOSYASI İSE ÜRÜNLER BİLGİSİ TUTAN TXT DOSYASI.
+YANİ YENİ ÜRÜN KAYIT FONKSİYONUNDA EKLEDİĞİMİZ ÜRÜNLERİ TUTAN DOSYA.
+"""
 
 import random
 
@@ -16,7 +23,7 @@ def trlower(metin):
 
     return metin2
 
-# BURADA MÜŞTERİ BİLGİLERİ VE SATIŞ YAPILAN ÜRÜN BİLGİLERİ ALINIYOR. SATIŞ BİLGİLERİ DOSYASINA VERİLER KAYDEDİLİYOR.
+# BURADA MÜŞTERİ BİLGİLERİ VE SATIŞ YAPILAN ÜRÜN BİLGİLERİ ALINIYOR. SATIŞ VE MÜŞTERİLER DOSYASINA VERİLER KAYDEDİLİYOR.
 def SatisYap():
     Musteriler = dict()
 
@@ -32,8 +39,8 @@ def SatisYap():
     for i in range(1, satissayisi + 1):
         bilgi = dict()
         # SATIŞ BİLGİLERİ İÇİ AYRI MÜŞTERİ BİLGİLERİ İÇİN AYRI DOSYA AÇTIM.
-        dosya = open("SatisBilgileri.txt", "a", encoding="utf-8")
-        dosya2 = open("Musteriler.txt", "a", encoding="utf-8")
+        dosya = open("18010011087(2).txt", "a", encoding="utf-8")
+        dosya2 = open("18010011087(3).txt", "a", encoding="utf-8")
 
         MusteriAdSoyad = input("{}. Müşterinin adı ve soyadını giriniz : ".format(i))
         bilgi["AD SOYAD"] = MusteriAdSoyad.title()
@@ -188,7 +195,7 @@ def YeniUrunKayit():
 
         bilgi = dict()
         # DEPODAKİ ÜRÜN BİLGİLERİNİ TUTMASI İÇİN ÜRÜNLER.TXT DOSYASI OLUŞTURDUM.
-        dosya = open("Urunler.txt", "a", encoding="utf-8")
+        dosya = open("18010011087.txt", "a", encoding="utf-8")
 
         # DEPOYA EKLEDİĞİMİZ ÜRÜNLERE RASTGELE KOD ATAMASI YAPIYOR BÖYLECE DİĞER FONKSİYONLARDA BU KOD İLE ÜRÜNLERE ERİŞECEĞİZ.
         kod = random.randint(10000,99999)
@@ -229,7 +236,7 @@ def YeniUrunKayit():
 
 # DEPODAKİ ÜRÜNLER İÇİNDEN ARAMA YAPMA FONKSİYONU
 def UrunArama(urun):
-    dosya = open("Urunler.txt", "r", encoding="utf-8")
+    dosya = open("18010011087.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
@@ -245,9 +252,12 @@ def UrunArama(urun):
 
 # İSTEDİĞİMİZ MÜŞTERİNİN BİLGİLERİNİ ARAMA FONKSİYONU
 def MusteriArama(musteriad):
-    dosya = open("Musteriler.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
+
+    # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
+    # OKUNAN SATIRLAR BİR LİSTEDE TUTULUYOR.
 
     for i in satir:
         if trlower(musteriad) in trlower(i):
@@ -255,9 +265,8 @@ def MusteriArama(musteriad):
             print("\nMÜŞTERİ BİLGİLERİ\n")
             print(i)
 
-# YAPILAN SATIŞLAR İÇİNDEN ARAMA YAPMAMIZI SAĞLAYAN FONKSİYON.
 def SatisBilgisiArama(musteriad,uruntur):
-    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     for i in satir:
@@ -268,11 +277,14 @@ def SatisBilgisiArama(musteriad,uruntur):
 
 # DEPOYA EKLEDİĞİMİZ ÜRÜNLERDEN İSTEDİĞİMİZİ SİLME FONKSİYONU
 def UrunSilme(kod):
-    dosya = open("Urunler.txt", "r", encoding="utf-8")
+    dosya = open("18010011087.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
-    dosya = open("Urunler.txt", "w", encoding="utf-8")
+    # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
+    # OKUNAN SATIRLAR BİR LİSTEDE TUTULUYOR.
+
+    dosya = open("18010011087.txt", "w", encoding="utf-8")
     # SİLME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
 
     for i in satir:
@@ -294,12 +306,14 @@ def UrunSilme(kod):
 
 # YAPTIĞIMIZ SATIŞLARIN BİLGİLERİNDEN İSTEDİĞİMİZİ SİLME FONKSİYONU
 def SatisBilgisiSilme(musteriad):
-    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
+    # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
+    # OKUNAN SATIRLAR BİR LİSTEDE TUTULUYOR.
 
-    dosya = open("SatisBilgileri.txt", "w", encoding="utf-8")
+    dosya = open("18010011087(2).txt", "w", encoding="utf-8")
     # SİLME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
 
     for i in satir:
@@ -323,11 +337,14 @@ def SatisBilgisiSilme(musteriad):
 
 # İSTEDİĞİMİZ MÜŞTERİNİN KAYDINI SİLME FONKSİYONU
 def MusteriKayitSilme(isim):
-    dosya = open("Musteriler.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
-    dosya = open("Musteriler.txt", "w", encoding="utf-8")
+    # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
+    # OKUNAN SATIRLAR BİR LİSTEDE TUTULUYOR.
+
+    dosya = open("18010011087(3).txt", "w", encoding="utf-8")
     # SİLME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
 
     for i in satir:
@@ -349,10 +366,10 @@ def MusteriKayitSilme(isim):
 # ÜRÜNLER.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
 # BU FONKSİYONDAN DÖNEN DEĞERLERİ DİĞER FONKSİYONLARDA KULLANMAK İÇİN BU FONKSİYONU YAZDIM.
 def UrunBilgisi(kod):
-    with open("Urunler.txt", "r", encoding="utf-8") as dosya:
+    with open("18010011087.txt", "r", encoding="utf-8") as dosya:
         for bilgi in dosya:
             bilgi = bilgi[:-1]
-            bilgiler = bilgi.split(" -- ")    # BİLGİLER ARASINDA '--' İŞARETİ OLDUĞU İÇİN '--' İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
+            bilgiler = bilgi.split(" -- ")    # BİLGİLER ARASINDA -- İŞARETİ OLDUĞU İÇİN -- İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
             if kod in bilgiler[0]:
                 tur = bilgiler[1]
                 renk = bilgiler[2]
@@ -364,68 +381,56 @@ def UrunBilgisi(kod):
 
 
 # DEPODAKİ ÜRÜNLERİN İSTEDİĞİMİZ ÖZELLİKLERİNİ GÜNCELLEME FONKSİYONU
-
 def UrunGuncelleme(kod):
 
-    dosya = open("Urunler.txt", "r", encoding="utf-8")
+    dosya = open("18010011087.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
+
+    # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
+    # OKUNAN SATIRLAR BİR LİSTEDE TUTULUYOR.
+
 
     for i in satir:
 
         if trlower(kod) in trlower(i):
             tur, renk, beden, marka, fiyat = UrunBilgisi(kod)  # YUKARIDA YAZDIĞIM FONKSİYON İLE ÜRÜNLER.TXT DOSYASI İÇİNDEKİ DEĞERLERİ ALDIM.
             indeks = satir.index(i)
-            print("\n", i, "\n")
-            dosya = open("Urunler.txt", "w", encoding="utf-8")
+            print("\n",i,"\n")
+            dosya = open("18010011087.txt", "w", encoding="utf-8")
             # GÜNCELLEME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPACAĞI İÇİN DOSYAYI YAZMA MODUNDA AÇTIM.
-            while True:
-                try:
-                    secim = input("1 : Tür / 2 : Renk / 3 : Beden / 4 : Marka / 5 : Fiyat\nLütfen güncellemek istediğiniz özelliği seçiniz : ")
+            secim = input("1 : Tür / 2 : Renk / 3 : Beden / 4 : Marka / 5 : Fiyat\nLütfen güncellemek istediğiniz özelliği seçiniz : ")
 
-                    # SEÇİLEN ÖZELLİĞE GÖRE ÜRÜNÜ GÜNCELLEYİP TEKRAR DOSYAYA YAZDIRDIM.
-                    if secim == "1":
-                        tur2 = input("Tür giriniz : ")
-                        tur = tur2
-                        eklenecekler = "ÜRÜN KODU : " + kod + " -- TÜR : " + tur.title() + " -- " + renk.title() + " -- " + beden + " -- " + marka.title() + " -- " + str(
-                            fiyat) + "\n"
-                        break
+            # SEÇİLEN ÖZELLİĞE GÖRE ÜRÜNÜ GÜNCELLEYİP TEKRAR DOSYAYA YAZDIRDIM.
+            if secim == "1":
+                tur2 = input("Tür giriniz : ")
+                tur = tur2
+                eklenecekler = "ÜRÜN KODU : " + kod + " -- TÜR : " + tur.title() + " -- " + renk.title() + " -- " + beden + " -- " + marka.title() + " -- " + str(
+                    fiyat) + "\n"
 
-                    elif secim == "2":
-                        renk2 = input("Renk giriniz : ")
-                        renk = renk2
-                        eklenecekler = "ÜRÜN KODU : " + kod + " -- " + tur.title() + " -- RENK : " + renk.title() + " -- " + beden + " -- " + marka.title() + " -- " + str(
-                            fiyat) + "\n"
-                        break
+            elif secim == "2":
+                renk2 = input("Renk giriniz : ")
+                renk = renk2
+                eklenecekler = "ÜRÜN KODU : " + kod + " -- " + tur.title() + " -- RENK : " + renk.title() + " -- " + beden + " -- " + marka.title() + " -- " + str(
+                    fiyat) + "\n"
 
-                    elif secim == "3":
-                        beden2 = input("Beden giriniz : ")
-                        beden = beden2
-                        eklenecekler = "ÜRÜN KODU : " + kod + " -- " + tur.title() + " -- " + renk.title() + " -- BEDEN : " + beden + " -- " + marka.title() + " -- " + str(
-                            fiyat) + "\n"
-                        break
+            elif secim == "3":
+                beden2 = input("Beden giriniz : ")
+                beden = beden2
+                eklenecekler = "ÜRÜN KODU : " + kod + " -- " + tur.title() + " -- " + renk.title() + " -- BEDEN : " + beden + " -- " + marka.title() + " -- " + str(
+                    fiyat) + "\n"
 
-                    elif secim == "4":
-                        marka2 = input("Marka giriniz : ")
-                        marka = marka2
-                        eklenecekler = "ÜRÜN KODU : " + kod + " -- " + tur.title() + " -- " + renk.title() + " -- " + beden + " -- MARKA : " + marka.title() + " -- " + str(
-                            fiyat) + "\n"
-                        break
+            elif secim == "4":
+                marka2 = input("Marka giriniz : ")
+                marka = marka2
+                eklenecekler = "ÜRÜN KODU : " + kod + " -- " + tur.title() + " -- " + renk.title() + " -- " + beden + " -- MARKA : " + marka.title() + " -- " + str(
+                    fiyat) + "\n"
 
-                    elif secim == "5":
-                        while True:
-                            try:
-                                fiyat2 = float(input("Fiyat giriniz : "))
-                                break
-                            except ValueError:
-                                print("Lütfen integer ya da float değer giriniz !!")
-                        fiyat = fiyat2
-                        eklenecekler = "ÜRÜN KODU : " + kod + " -- " + tur.title() + " -- " + renk.title() + " -- " + beden + " -- " + marka.title() + " -- FİYAT : " + str(fiyat) + "\n"
-                        break
-                    else:
-                        raise BaseException("Lütfen 1-2-3-4-5 seçeneklerinden seçiniz !!")
-                except BaseException:
-                    print("Lütfen 1-2-3-4-5 seçeneklerinden seçiniz !!")
+            elif secim == "5":
+                fiyat2 = float(input("Fiyat giriniz : "))
+                fiyat = fiyat2
+                eklenecekler = "ÜRÜN KODU : " + kod + " -- " + tur.title() + " -- " + renk.title() + " -- " + beden + " -- " + marka.title() + " -- FİYAT : " + str(
+                    fiyat) + "\n"
 
 
             del satir[indeks]
@@ -440,17 +445,20 @@ def UrunGuncelleme(kod):
         else:
             pass
 
+
+
+
     print("\n-- GÜNCEL ÜRÜNLER --\n")
     for i in satir:
         print(i)
 
-# SATİSBİLGİLERİ.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
+# SATİSVEMUSTERİLER.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
 # BU FONKSİYONDAN DÖNEN DEĞERLERİ DİĞER FONKSİYONLARDA KULLANMAK İÇİN BU FONKSİYONU YAZDIM.
 def BilgiCekme(musteriad):
-    with open("SatisBilgileri.txt", "r", encoding="utf-8") as dosya:
+    with open("18010011087(2).txt", "r", encoding="utf-8") as dosya:
         for bilgi in dosya:
             bilgi = bilgi[:-1]
-            bilgiler = bilgi.split(" -- ")    # BİLGİLER ARASINDA '--' İŞARETİ OLDUĞU İÇİN '--' İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
+            bilgiler = bilgi.split(" -- ")    # BİLGİLER ARASINDA -- İŞARETİ OLDUĞU İÇİN -- İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
             if trlower(musteriad) in trlower(bilgiler[0]):
                 ad = bilgiler[0]
                 tur = bilgiler[1]
@@ -466,10 +474,10 @@ def BilgiCekme(musteriad):
 # MUSTERİLER.TXT DOSYASINDAKİ BİLGİLERİ BU FONKSİYON İLE ALDIM (HER SATIRDAKİ BİLGİLERİ TEK TEK ALDIM).
 # BU FONKSİYONDAN DÖNEN DEĞERLERİ DİĞER FONKSİYONLARDA KULLANMAK İÇİN BU FONKSİYONU YAZDIM.
 def MusteriBilgi(ad):
-    with open("Musteriler.txt", "r", encoding="utf-8") as dosya:
+    with open("18010011087(3).txt", "r", encoding="utf-8") as dosya:
         for bilgi in dosya:
             bilgi = bilgi[:-1]
-            bilgiler = bilgi.split(" -- ")   # BİLGİLER ARASINDA '--' İŞARETİ OLDUĞU İÇİN '--' İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
+            bilgiler = bilgi.split(" -- ")   # BİLGİLER ARASINDA -- İŞARETİ OLDUĞU İÇİN -- İŞARETİNDEN AYIRARAK İNDEKSLEME YAPTIM.
             if trlower(ad) in trlower(bilgiler[0]):
                 ad = bilgiler[0]
                 numara = bilgiler[1]
@@ -479,9 +487,12 @@ def MusteriBilgi(ad):
 
 # MÜŞTERİ BİLGİSİ GÜNCELLEME FONKSİYONU
 def MusteriBilgisiGuncelleme(guncelad):
-    dosya = open("Musteriler.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
+
+    # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
+    # OKUNAN SATIRLAR BİR LİSTEDE TUTULUYOR.
 
 
     for i in satir:
@@ -489,39 +500,25 @@ def MusteriBilgisiGuncelleme(guncelad):
         if trlower(guncelad) in trlower(i):
             ad, numara, kart = MusteriBilgi(guncelad)  # YUKARIDA YAZDIĞIM FONKSİYON İLE MUSTERİLER.TXT DOSYASINDAKİ BİLGİLERİ ALDIM.
             indeks = satir.index(i)
-            print("\n", i, "\n")
-            dosya = open("Musteriler.txt", "w", encoding="utf-8")
+            print("\n",i,"\n")
+            dosya = open("18010011087(3).txt", "w", encoding="utf-8")
             # GÜNCELLEME İŞLEMİ DOSYADA DEĞİŞİKLİK YAPTIĞI İÇİN YAZMA MODUNDA AÇTIM.
-            while True:
-                try:
-                    secim = input( "1 : Ad Soyad / 2 : Telefon Numarası / 3: Mağaza Kart Puanı\nLütfen güncellemek istediğiniz durumu seçiniz : ")
-                    # YAPILAN SEÇİME GÖRE MÜŞTERİ BİLGİSİNİ GÜNCELLEDİ VE DOSYAYA YAZDI.
-                    if secim == "1":
-                        ad2 = input("Müşteri adı ve soyadı giriniz : ")
-                        ad = ad2
-                        eklenecekler = "MÜŞTERİ AD-SOYAD : " + ad.title() + " -- " + numara + " -- " + kart + "\n"
-                        break
-                    elif secim == "2":
-                        numara2 = input("Müşteri telefon numarası giriniz : ")
-                        numara = numara2
-                        eklenecekler = ad.title() + " -- MÜŞTERİ TELEFON NUMARASI : " + numara + " -- " + kart + "\n"
-                        break
-                    elif secim == "3":
-                        while True:
-                            try:
-                                kart2 = int(input("Müşterinin mağaza kart puanını giriniz : "))
-                                break
-                            except ValueError:
-                                print("Lütfen integer bir değer giriniz !!")
+            secim = input("1 : Ad Soyad / 2 : Telefon Numarası / 3: Mağaza Kart Puanı\nLütfen güncellemek istediğiniz durumu seçiniz : ")
+            # YAPILAN SEÇİME GÖRE MÜŞTERİ BİLGİSİNİ GÜNCELLEDİ VE DOSYAYA YAZDI.
+            if secim == "1":
+                ad2 = input("Müşteri adı ve soyadı giriniz : ")
+                ad = ad2
+                eklenecekler = "MÜŞTERİ AD-SOYAD : " + ad.title() + " -- " + numara + " -- " + kart + "\n"
 
-                        kart = kart2
-                        eklenecekler = ad.title() + " -- " + numara + " -- MAĞAZA KART PUANI : " + str(kart) + "\n"
-                        break
-                    else:
-                        raise BaseException("Lütfen 1-2-3 seçeneklerinden seçiniz !!")
-                except BaseException:
-                    print("Lütfen 1-2-3 seçeneklerinden birini seçiniz !!")
+            elif secim == "2":
+                numara2 = input("Müşteri telefon numarası giriniz : ")
+                numara = numara2
+                eklenecekler = ad.title() + " -- MÜŞTERİ TELEFON NUMARASI : " + numara + " -- " + kart + "\n"
 
+            elif secim == "3":
+                kart2 = input("Müşterinin mağaza kart puanını giriniz : ")
+                kart = kart2
+                eklenecekler = ad.title() + " -- " + numara + " -- MAĞAZA KART PUANI : " + kart + "\n"
 
             del satir[indeks]
             # HER KOŞULA GÖRE AYRI STRİNGLER OLUŞTURDUM VE EN SONDA BU STRİNGİ DOSYAYA EKLEDİM.
@@ -535,19 +532,26 @@ def MusteriBilgisiGuncelleme(guncelad):
         else:
             pass
 
+
+
+
     print("\n-- GÜNCEL MÜŞTERİ BİLGİLERİ --\n")
     for i in satir:
         print(i)
 
 
+
 # YAPTIĞIMIZ SATIŞLARDA İSTEYEN MÜŞTERİLERİMİZİN ÜRÜN DEĞİŞİMİNİ YAPAN FONKSİYON
 def UrunDegisim(musteri,urun):
-    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
 
     # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
     # OKUNAN SATIRLAR BİR LİSTEDE TUTULUYOR.
+
+
+
 
     for i in satir:
 
@@ -556,34 +560,26 @@ def UrunDegisim(musteri,urun):
                 ad, tur, marka, fiyat, odeme, mevcutrenk, mevcutbeden = BilgiCekme(musteri)
                 # YUKARIDA YAZDIĞIM FONKSİYON İLE SATIŞ BİLGİLERİNİ ALDIM.
                 indeks = satir.index(i)
-                print("\n", i, "\n")
+                print("\n",i,"\n")
                 print("\nSadece beden ve renk değişimi yapabilirsiniz.\n")
-                dosya = open("SatisBilgileri.txt", "w", encoding="utf-8")
-                while True:
-                    try:
+                dosya = open("18010011087(2).txt", "w", encoding="utf-8")
+                secim = input("Renk değişimi : R / Beden değişimi : B\n Seçim : ")
 
-                        secim = input("Renk değişimi : R / Beden değişimi : B\n Seçim : ")
+                # DEĞİŞİM YAPAN MÜŞTERİNİN SATIŞ BİLGİSİNDE DEĞİŞİM YAPILDIĞI NOT OLARAK GÖRÜNÜYOR.
+                # SEÇİME GÖRE MÜŞTERİNİN 2 ÖZELLİKTEN BİRİNİ DEĞİŞTİRME HAKKI VAR.
+                # DOSYA BUNA GÖRE YENİDEN YAZILIYOR.
 
-                        # DEĞİŞİM YAPAN MÜŞTERİNİN SATIŞ BİLGİSİNDE DEĞİŞİM YAPILDIĞI NOT OLARAK GÖRÜNÜYOR.
-                        # SEÇİME GÖRE MÜŞTERİNİN 2 ÖZELLİKTEN BİRİNİ DEĞİŞTİRME HAKKI VAR.
-                        # DOSYA BUNA GÖRE YENİDEN YAZILIYOR.
-
-                        if secim == "R" or secim == "r":
-                            renk = input("Renk giriniz : ")
-                            beden = mevcutbeden
-                            eklenecekler = ad.title() + " -- " + tur.title() + " (DEĞİŞİM YAPILDI) -- ÜRÜN RENK : " + renk.title() + " -- " + beden + " -- " + marka + " -- " + fiyat + " -- " + odeme + "\n"
-                            break
-                        elif secim == "B" or secim == "b":
-                            beden = input("Beden giriniz : ")
-                            renk = mevcutrenk
-                            eklenecekler = ad.title() + " -- " + tur.title() + " (DEĞİŞİM YAPILDI) -- " + renk.title() + " -- ÜRÜN BEDEN : " + beden + " -- " + marka + " -- " + fiyat + " -- " + odeme + "\n"
-                            break
-                        else:
-                            raise BaseException("Lütfen R/r ya da B/b giriniz !!")
-                    except BaseException:
-                        print("Lütfen R/r ya da B/b giriniz !!")
-                # HER KOŞULA GÖRE AYRI STRİNGLER OLUŞTURDUM VE EN SONDA BU STRİNGİ DOSYAYA EKLEDİM.
                 del satir[indeks]
+                if secim == "R" or secim == "r":
+                    renk = input("Renk giriniz : ")
+                    beden = mevcutbeden
+                    eklenecekler = ad.title() + " -- " + tur.title() + " (DEĞİŞİM YAPILDI) -- ÜRÜN RENK : " + renk.title() + " -- " + beden + " -- " + marka + " -- " + fiyat + " -- " + odeme + "\n"
+                elif secim == "B" or secim == "b":
+                    beden = input("Beden giriniz : ")
+                    renk = mevcutrenk
+                    eklenecekler = ad.title() + " -- " + tur.title() + " (DEĞİŞİM YAPILDI) -- " + renk.title() + " -- ÜRÜN BEDEN : " + beden + " -- " + marka + " -- " + fiyat + " -- " + odeme + "\n"
+
+                # HER KOŞULA GÖRE AYRI STRİNGLER OLUŞTURDUM VE EN SONDA BU STRİNGİ DOSYAYA EKLEDİM.
                 eklenecekler = str(eklenecekler)
                 satir.insert(indeks, eklenecekler)
                 dosya.writelines(satir)
@@ -602,9 +598,14 @@ def UrunDegisim(musteri,urun):
 
 # YAPTIĞIMIZ SATIŞLARDA İSTEYEN MÜŞTERİLERİMİZİN ÜRÜN İADESİNİ YAPAN FONKSİYON
 def UrunIade(musteri,urun):
-    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
+
+    # TXT DOSYASINI OKUMA MODUNDA AÇTIM VE READLİNES() İLE HER SATIRI TEK TEK OKUDUM.
+    # OKUNAN SATIRLAR BİR LİSTEDE TUTULUYOR.
+
+
 
     for i in satir:
 
@@ -613,8 +614,8 @@ def UrunIade(musteri,urun):
                 ad, tur, marka, fiyat, odeme, renk, beden = BilgiCekme(musteri)
                 # YUKARIDA YAZDIĞIM FONKSİYON İLE SATIŞ BİLGİLERİNİ ALDIM.
                 indeks = satir.index(i)
-                print("\n", i, "\n")
-                dosya = open("SatisBilgileri.txt", "w", encoding="utf-8")
+                print("\n",i,"\n")
+                dosya = open("18010011087(2).txt", "w", encoding="utf-8")
 
                 # İADE YAPAN MÜŞTERİNİN SATIŞ BİLGİSİNDE İADE EDİLDİĞİ NOT OLARAK GÖRÜNÜYOR.
                 # DOSYA BUNA GÖRE YENİDEN YAZILIYOR.
@@ -641,7 +642,7 @@ def UrunIade(musteri,urun):
 # BELİRLİ BİR FİYAT VE ÜZERİNDE KAÇ ALIŞVERİŞ YAPILDIĞINI KULLANICIYA SÖYLEYEN FONKSİYON
 def FiyataGoreListeleme(arananfiyat):
 
-    with open("SatisBilgileri.txt", "r", encoding="utf-8") as dosya:
+    with open("18010011087(2).txt", "r", encoding="utf-8") as dosya:
         sayac = 0
         for fiyat in dosya:
             fiyat = fiyat[:-1]
@@ -663,9 +664,8 @@ def FiyataGoreListeleme(arananfiyat):
 
 # EN ÇOK ALIŞVERİŞ YAPAN MÜŞTERİLERİ LİSTELEYEN FONKSİYON
 def EnCokAlisverisYapanMusteriler():
-    with open("Musteriler.txt", "r", encoding="utf-8") as dosya:
+    with open("18010011087(3).txt", "r", encoding="utf-8") as dosya:
         print("\nEN ÇOK ALIŞVERİŞ YAPAN MÜŞTERİLER\n")
-        print("\nMağaza kart puanı 300 ve üzeri olan daimi müşterilerimiz : \n")
         for fiyat in dosya:
             fiyat = fiyat[:-1]
             # DOSYADAKİ SATIRLARI "MAĞAZA KART PUANI : " STRİNGİNE GÖRE AYIRDIM VE SON İNDİSE KART PUANI KISMI KALDI.
@@ -675,6 +675,7 @@ def EnCokAlisverisYapanMusteriler():
             aranan = int(aranan)
 
             if aranan >= 300:  # MAĞAZA KART PUANI 300 ÜZERİNDE OLAN MÜŞTERİLERİ LİSTELE BU MÜŞTERİLER EN ÇOK ALIŞVERİŞ YAPANLAR GRUBUNA GİRİYOR.
+                print("\nMağaza kart puanı 300 ve üzeri olan daimi müşterilerimiz : \n")
                 print(fiyat)
             else:
                pass
@@ -682,7 +683,7 @@ def EnCokAlisverisYapanMusteriler():
 
 # DEPODAKİ ÜRÜNLERİ LİSTELEYEN FONKSİYON
 def UrunListele():
-    dosya = open("Urunler.txt", "r", encoding="utf-8")
+    dosya = open("18010011087.txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     print("\nDEPODAKİ ÜRÜNLER\n")
@@ -691,7 +692,7 @@ def UrunListele():
 
 # SİSTEMDE KAYITLI MÜŞTERİLERİMİZİN TAMAMINI KULLANICIYA LİSTELEYEN FONKSİYON
 def MusteriListele():
-    dosya = open("Musteriler.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     print("\nKAYITLI MÜŞTERİ BİLGİLERİ\n")
@@ -700,7 +701,7 @@ def MusteriListele():
 
 # YAPILAN BÜTÜN SATIŞLARIN BİLGİSİNİ KULLANICIYA LİSTELEYEN FONKSİYON
 def SatisBilgisiListele():
-    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
+    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
     satir = dosya.readlines()
     dosya.close()
     print("\nYAPILAN BÜTÜN SATIŞLARIN BİLGİLERİ\n")
@@ -710,22 +711,22 @@ def SatisBilgisiListele():
 
 def menu():
     print("\n---- MAĞAZA OTOMASYONUNA HOŞGELDİNİZ ----")
-    print("\nNOT : GÖNDERDİĞİM DOSYA ÜRÜN BİLGİLERİNİ TUTTUĞU İÇİN ÜRÜN ARAMA, ÜRÜN GÜNCELLEME, ÜRÜN LİSTELEME, ÜRÜN SİLME İŞLEMLERİNİ DİREKT ÇALIŞTIRABİLİRSİNİZ.\nDİĞER İŞLEMLERİ YAPMAK İÇİN ÖNCELİKLE SATIŞ YAP İŞLEMİNİ YAPMANIZ GEREKLİ ÇÜNKÜ MÜŞTERİ BİLGİLERİ VE SATIŞ BİLGİLERİ DOSYALARI O FONKSİYONDA OLUŞUYOR.\nBENİM GÖNDERDİĞİM SADECE ÜRÜN BİLGİLERİNİ İÇEREN TXT DOSYASI.PROJEMDE 3 TANE DOSYA KULLANDIM.\n")
+    print("\nNOT : GÖNDERDİĞİM DOSYA ÜRÜN BİLGİLERİNİ TUTTUĞU İÇİN ÜRÜN ARAMA, ÜRÜN GÜNCELLEME, ÜRÜN LİSTELEME, ÜRÜN SİLME İŞLEMLERİNİ DİREKT ÇALIŞTIRABİLİRSİNİZ.", "DİĞER İŞLEMLERİ YAPMAK İÇİN ÖNCELİKLE SATIŞ YAP İŞLEMİNİ YAPMANIZ GEREKLİ ÇÜNKÜ MÜŞTERİ BİLGİLERİ VE SATIŞ BİLGİLERİ DOSYALARI O FONKSİYONDA OLUŞUYOR.","BENİM GÖNDERDİĞİM SADECE ÜRÜN BİLGİLERİNİ İÇEREN TXT DOSYASI.PROJEMDE 3 TANE DOSYA KULLANDIM.\n")
     while True:
         # MENÜDE BAZI İŞLEMLER 2 VEYA 3 DOSYA ÜZERİNDE DE GERÇEKLEŞEBİLECEĞİ İÇİN ALT KISIMLARA AYIRDIM.
-        print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+        print("\n-------------------------------------------------------------------------------\n")
         menu = input(
             "1) SATIŞ YAP\n2) YENİ ÜRÜN EKLE\n3) ARAMA İŞLEMLERİ\n\t-Ürün Arama\n\t-Müşteri Arama\n\t-Satış Bilgisi Arama\n4) SİLME İŞLEMLERİ\n\t-Ürün Silme\n\t-Satış Bilgisi Silme\n\t-Müşteri Kaydı Silme\n5) ÜRÜN DEĞİŞİMİ\n6) ÜRÜN İADE\n7) GÜNCELLEME İŞLEMLERİ\n\t-Ürün Güncelleme\n\t-Müşteri Kayıt Bilgisi Güncelleme\n8) LİSTELEME İŞLEMLERİ\n\t-Depodaki Ürünleri Listele\n\t-Kayıtlı Müşteri Bilgilerini Listele\n\t-Mevcut Satış Bilgilerini Listele\n\t-En Çok ALışveriş Yapan Müşterileri Listele\n9) ... TL ve Üzeri Yapılan Satışlar\n10) Çıkış\nLütfen menü seçiniz : ")
-        print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+        print("\n-------------------------------------------------------------------------------\n")
         if menu == "1":
             SatisYap()
         elif menu == "2":
             YeniUrunKayit()
         elif menu == "3":
             while True:
-                print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+                print("\n-------------------------------------------------------------------------------\n")
                 secim = input("1) Ürün Arama\n2) Müşteri Arama\n3) Satış Bilgisi Arama\n4) Ana Menü\nLütfen menü seçiniz : ")
-                print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+                print("\n-------------------------------------------------------------------------------\n")
                 if secim == "1":
                     urun = input("Aramak istediğiniz ürünün kodunu giriniz.(Kodu bilmiyorsanız ürünün türünü giriniz.) : ")
                     UrunArama(urun)
@@ -743,13 +744,13 @@ def menu():
 
         elif menu == "4":
             while True:
-                print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+                print("\n-------------------------------------------------------------------------------\n")
                 secim = input(
                     "1) Ürün Silme\n2) Satış Bilgisi Silme\n3) Müşteri Kaydı Silme\n4) Ana Menü\nLütfen menü seçiniz : ")
-                print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+                print("\n-------------------------------------------------------------------------------\n")
                 # SİLME İŞLEMİNDEN ÖNCE BİLGİLERİ EKRANA YAZDIRDIM KULLANICININ GÖRMESİ İÇİN.
                 if secim == "1":
-                    dosya = open("Urunler.txt", "r", encoding="utf-8")
+                    dosya = open("18010011087.txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -758,7 +759,7 @@ def menu():
                     UrunSilme(kod)
 
                 elif secim == "2":
-                    dosya = open("SatisBilgileri.txt", "r", encoding="utf-8")
+                    dosya = open("18010011087(2).txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -766,7 +767,7 @@ def menu():
                     ad = input("Satış bilgilerini silmek istediğiniz müşterinin adını ve soyadınız giriniz : ")
                     SatisBilgisiSilme(ad)
                 elif secim == "3":
-                    dosya = open("Musteriler.txt", "r", encoding="utf-8")
+                    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -790,12 +791,12 @@ def menu():
         elif menu == "7":
             while True:
                 # GÜNCELLEME İŞLEMİNDEN ÖNCE BİLGİLERİ EKRANA YAZDIRDIM KULLANICININ GÖRMESİ İÇİN.
-                print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+                print("\n-------------------------------------------------------------------------------\n")
                 secim = input(
                     "1) Ürün Güncelleme\n2) Müşteri Kayıt Bilgisi Güncelleme\n3) Ana Menü\nLütfen menü seçiniz : ")
-                print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+                print("\n-------------------------------------------------------------------------------\n")
                 if secim == "1":
-                    dosya = open("Urunler.txt", "r", encoding="utf-8")
+                    dosya = open("18010011087.txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -805,7 +806,7 @@ def menu():
                     UrunGuncelleme(kod)
 
                 elif secim == "2":
-                    dosya = open("Musteriler.txt", "r", encoding="utf-8")
+                    dosya = open("18010011087(3).txt", "r", encoding="utf-8")
                     satir = dosya.readlines()
                     for i in satir:
                         print(i)
@@ -820,10 +821,10 @@ def menu():
                     print("Geçersiz menü seçimi!")
         elif menu == "8":
             while True:
-                print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+                print("\n-------------------------------------------------------------------------------\n")
                 secim = input(
                     "1) Depodaki Ürünleri Listele\n2) Kayıtlı Müşteri Bilgilerini Listele\n3) Mevcut Satış Bilgilerini Listele\n4) En Çok Alışveriş Yapan Müşterileri Listele\n5) Ana Menü\nLütfen menü seçiniz : ")
-                print("\n------------------------------------------------------------------------------------------------------------------------------------------------------------\n")
+                print("\n-------------------------------------------------------------------------------\n")
                 if secim == "1":
                     UrunListele()
                 elif secim == "2":
@@ -837,19 +838,16 @@ def menu():
                 else:
                     print("Geçersiz menü seçimi!")
         elif menu == "9":
-            while True:
-                try:
-                    aranacakfiyat = float(input("Aramak istediğiniz fiyatı giriniz : "))
-                    break
-                except ValueError:
-                    print("Lütfen float ya da integer değer giriniz !!")
+            aranacakfiyat = float(input("Aramak istediğiniz fiyatı giriniz : "))
             FiyataGoreListeleme(aranacakfiyat)
+
 
         elif menu == "10":
             print("ÇIKIŞ YAPILIYOR..")
             exit()
         else:
             print("Geçersiz menü seçimi!")
+
 
 menu()
 
