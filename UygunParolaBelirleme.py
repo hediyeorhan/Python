@@ -1,5 +1,4 @@
 
-# HEDİYE ORHAN -- 18010011087
 
 # EKLEDİĞİM ÖZELLİK 1 --> Parolada alfanümerik olmayan karakter başta veya sonda olmasın ortada bulunsun sadece. - Parolada en az bir tane sayı bulunsun.
 # EKLEDİĞİM ÖZELLİK 2 --> Parolada koyulmaması gereken karakterler belirledim. > < { } ^ ~ $ | bu karakterler parolada bulunmamalı.
